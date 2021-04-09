@@ -154,7 +154,9 @@ function complexity(filePath)
 		//Question 2, part b:
 		//Number of string literals in a file
 		if (node.type === 'Literal') { //In esprima "Literal" is capitalized
+			if(typeof node.value == 'string'){
 			fileBuilder.Strings++;
+			}
 		}
 
 	});
