@@ -122,6 +122,10 @@ function complexity(filePath)
 			builder.FunctionName = functionName(node);
 			builder.StartLine    = node.loc.start.line;
 
+			//Question 2, part a:
+			//Numbers of parameters in a function
+			builder.ParameterCount = node.params.length;
+
 			builders[builder.FunctionName] = builder;
 		}
 
