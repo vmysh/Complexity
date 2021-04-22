@@ -134,6 +134,18 @@ function complexity(filePath)
 				if (isDecision(node)){ //This helper function is defined lower
 					builder.SimpleCyclomaticComplexity++;
 					
+                    //Question 3, part b:
+					//Max number of conditions in one if statement
+					var maxConditions = 0;
+					traverseWithParents(node, function(node){
+						if(node.type === "LogicalExpression"){
+							maxConditions++;
+						}
+					});
+
+					if (maxConditions > builder.MaxConditions){
+						builder.MaxConditions = maxConditions;
+					}
 				}
 			});
 		}
