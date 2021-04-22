@@ -127,6 +127,15 @@ function complexity(filePath)
 			builder.ParameterCount = node.params.length;
 
 			builders[builder.FunctionName] = builder;
+
+            //Question 3, part a:
+			//Number of if statements/loops in a function
+			traverseWithParents(node, function(node){
+				if (isDecision(node)){ //This helper function is defined lower
+					builder.SimpleCyclomaticComplexity++;
+					
+				}
+			});
 		}
 
 		//Question 2, part b:
