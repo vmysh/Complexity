@@ -162,6 +162,15 @@ function complexity(filePath)
 
 }
 
+//Helper function for returning the value of the String data field of the 
+//FileBuilder instance
+
+function getStrings(){
+    for(var node in builders){
+        return builders[node].Strings;
+    }
+}
+
 // Helper function for counting children of node.
 function childrenLength(node)
 {
@@ -309,3 +318,6 @@ mints.toString().split(".")[0] + " " + szmin;
       }
   }
  exports.complexity = complexity;
+
+ //Exporting getStrings() to be able to use it in the test script
+ exports.getStrings = getStrings;
