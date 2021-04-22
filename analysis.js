@@ -122,41 +122,7 @@ function complexity(filePath)
 			builder.FunctionName = functionName(node);
 			builder.StartLine    = node.loc.start.line;
 
-			//Question 2, part a:
-			//Numbers of parameters in a function
-			builder.ParameterCount = node.params.length;
-
 			builders[builder.FunctionName] = builder;
-
-			//Question 3, part a:
-			//Number of if statements/loops in a function
-			traverseWithParents(node, function(node){
-				if (isDecision(node)){ //This helper function is defined lower
-					builder.SimpleCyclomaticComplexity++;
-
-					//Question 3, part b:
-					//Max number of conditions in one if statement
-					var maxConditions = 0;
-					traverseWithParents(node, function(node){
-						if(node.type === "LogicalExpression"){
-							maxConditions++;
-						}
-					});
-
-					if (maxConditions > builder.MaxConditions){
-						builder.MaxConditions = maxConditions;
-					}
-					
-				}
-			});
-		}
-
-		//Question 2, part b:
-		//Number of string literals in a file
-		if (node.type === 'Literal') { //In esprima "Literal" is capitalized
-			if(typeof node.value == 'string'){
-			fileBuilder.Strings++;
-			}
 		}
 
 	});

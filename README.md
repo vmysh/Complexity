@@ -1,5 +1,4 @@
 # Complexity & Travis-CI Lab
-# testing
 
 In this lab, you'll be implementing simple algorithms for checking basic properties of code complexity, and working with Travis-CI for Continuous Integration.
 
