@@ -20,7 +20,6 @@ function main()
 		var builder = builders[node];
 		builder.report();
 	}
-
 }
 
 
@@ -153,12 +152,13 @@ function complexity(filePath)
 		//Question 2, part b:
 		//Number of string literals in a file
 		if (node.type === 'Literal') { //In esprima "Literal" is capitalized
-			if(typeof node.value == 'string'){
+			//if(typeof node.value === 'string'){
 			fileBuilder.Strings++;
-			}
+			//}
 		}
 
 	});
+    stringCount = fileBuilder.Strings;
 
 }
 
@@ -166,9 +166,8 @@ function complexity(filePath)
 //FileBuilder instance
 
 function getStrings(){
-    for(var node in builders){
-        return builders[node].Strings;
-    }
+    complexity("mystery.js");
+    return stringCount;
 }
 
 // Helper function for counting children of node.
